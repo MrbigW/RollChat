@@ -12,7 +12,7 @@ import org.greenrobot.greendao.query.QueryBuilder;
  * Created by MrbigW on 2016/11/3.
  * weChat:1024057635
  * GitHub:MrbigW
- * Usage: -.-
+ * Usage: 用户操作类
  * -------------------=.=------------------------
  */
 

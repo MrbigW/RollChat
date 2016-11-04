@@ -1,6 +1,7 @@
 package com.wrk.rollchat;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.easeui.controller.EaseUI;
@@ -16,6 +17,8 @@ import com.wrk.rollchat.model.Model;
 
 public class RollChatApplication extends Application {
 
+    public static Context mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -25,6 +28,8 @@ public class RollChatApplication extends Application {
 
         // 初始化Model
         Model.getInstance().init(this);
+
+        this.mContext = this;
 
     }
 
@@ -36,6 +41,16 @@ public class RollChatApplication extends Application {
         options.setAcceptInvitationAlways(false);
         EaseUI.getInstance().init(this, options);
     }
+
+    /**
+     * 获取全局上下文
+     * @return
+     */
+    public static Context getAppContext() {
+        return mContext;
+    }
+
+
 }
 
 

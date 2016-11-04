@@ -3,8 +3,10 @@ package com.wrk.rollchat.model.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.wrk.rollchat.greenDAO.ContactInfoDao;
 import com.wrk.rollchat.greenDAO.DaoMaster;
 import com.wrk.rollchat.greenDAO.DaoSession;
+import com.wrk.rollchat.greenDAO.InvitationInfoDao;
 import com.wrk.rollchat.greenDAO.UserInfoDao;
 
 /**
@@ -64,6 +66,18 @@ public class DBManager {
         DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         return daoSession.getUserInfoDao();
+    }
+
+    public ContactInfoDao getContactInfoDao() {
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession.getContactInfoDao();
+    }
+
+    public InvitationInfoDao getInvitationInfoDao() {
+        DaoMaster daoMaster = new DaoMaster(getReadableDatabase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession.getInvitationInfoDao();
     }
 
 
