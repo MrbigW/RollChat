@@ -36,11 +36,24 @@
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/et_add_name"
+    <android.support.design.widget.TextInputLayout
+        android:textColorHint="#c5c5c5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:textColor="#2fa881"
+            android:textCursorDrawable="@drawable/bg_input_cursor"
+            android:inputType="textPersonName"
+            android:hint=" 请输入要查找的用户名 "
+            android:id="@+id/et_add_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
 
 
     <RelativeLayout
@@ -57,6 +70,7 @@
             android:src="@drawable/em_default_avatar"/>
 
         <TextView
+
             android:id="@+id/tv_add_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,11 +78,13 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/iv_add_photo"
             android:text="名称"
+            android:textColor="@android:color/black"
             android:textSize="20sp"/>
 
         <Button
             android:id="@+id/btn_add_add"
-            android:layout_width="wrap_content"
+            style="@style/NormalBtnStyle"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="添加"/>

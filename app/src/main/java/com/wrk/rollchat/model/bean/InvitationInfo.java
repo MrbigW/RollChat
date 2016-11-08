@@ -25,19 +25,22 @@ public class InvitationInfo {
     private String group_hxid;
     private String group_name;
 
+    private String invatePerson;
+
 
     private String reason; // 邀请原因
 
     @Convert(converter = InvitationStatusConverter.class, columnType = String.class)
     private InvitationStatus status; // 邀请的状态
 
-    @Generated(hash = 1518256574)
+    @Generated(hash = 1270415447)
     public InvitationInfo(String user_hxid, String user_name, String group_hxid,
-                          String group_name, String reason, InvitationStatus status) {
+            String group_name, String invatePerson, String reason, InvitationStatus status) {
         this.user_hxid = user_hxid;
         this.user_name = user_name;
         this.group_hxid = group_hxid;
         this.group_name = group_name;
+        this.invatePerson = invatePerson;
         this.reason = reason;
         this.status = status;
     }
@@ -105,5 +108,15 @@ public class InvitationInfo {
                 ", reason='" + reason + '\'' +
                 ", status=" + status +
                 '}';
+    }
+
+
+    public String getInvatePerson() {
+        return this.invatePerson;
+    }
+
+
+    public void setInvatePerson(String invatePerson) {
+        this.invatePerson = invatePerson;
     }
 }

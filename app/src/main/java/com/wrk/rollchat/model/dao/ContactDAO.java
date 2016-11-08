@@ -28,7 +28,8 @@ public class ContactDAO {
     // 获取所有联系人
     public List<ContactInfo> getContacts() {
         QueryBuilder<ContactInfo> queryBuilder = mContactInfoDao.queryBuilder();
-        return queryBuilder.build().list();
+        queryBuilder.where(ContactInfoDao.Properties.Is_contact.eq(1));
+        return queryBuilder.list();
     }
 
     // 通过环信id获取单个联系人信息
@@ -76,7 +77,7 @@ public class ContactDAO {
 
 
     // 保存联系人列表
-    public void saveContact(List<UserInfo> contacts, boolean isMyContact) {
+    public void saveContacts(List<UserInfo> contacts, boolean isMyContact) {
         if (contacts == null || contacts.size() <= 0) {
             return;
         }

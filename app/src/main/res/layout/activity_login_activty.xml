@@ -30,10 +30,10 @@
                 android:layout_marginTop="10dp">
 
                 <View
-                    android:layout_centerVertical="true"
                     android:layout_width="8dp"
                     android:layout_height="30dp"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:background="#2fa881"
                     />
 
@@ -112,23 +112,19 @@
                 android:gravity="center">
 
                 <ProgressBar
-                    android:visibility="gone"
                     android:id="@+id/pb_loading"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     />
 
                 <Button
                     android:id="@+id/bt_go"
+                    style="@style/NormalBtnStyle"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/bt_shape"
-                    android:stateListAnimator="@drawable/state_list_animator_z"
                     android:text="登   录"
-                    android:textColor="#000"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
                     >
                 </Button>
             </RelativeLayout>
@@ -149,14 +145,15 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@id/cv"
-        android:layout_alignTop="@id/cv"
-        android:layout_marginRight="-20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/cv"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="25dp"
         android:src="@drawable/plus"
         android:transitionName="loginFab"
-        app:fabSize="normal"
-        />
+        app:fabSize="normal"/>
 
 
 </RelativeLayout>

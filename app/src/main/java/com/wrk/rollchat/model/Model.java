@@ -3,8 +3,9 @@ package com.wrk.rollchat.model;
 import android.content.Context;
 
 import com.wrk.rollchat.model.bean.UserInfo;
+import com.wrk.rollchat.model.dao.InvitationContactManager;
 import com.wrk.rollchat.model.dao.UserAccountDAO;
-import com.wrk.rollchat.model.db.DBManager;
+import com.wrk.rollchat.model.db.EventListener;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,7 +24,7 @@ public class Model {
     private static Model instance;
     private Context mContext;
     private UserAccountDAO mAccountDAO;
-    private DBManager mDBManager;
+    private InvitationContactManager mManager;
 
 
     // 创建全局线程池
@@ -44,6 +45,8 @@ public class Model {
         this.mContext = context;
         // 初始化用户账号数据库操作类
         mAccountDAO = new UserAccountDAO(context);
+        // 初始化全局联系人监听
+        EventListener eventListener = new EventListener(context);
     }
 
     // 获取全局线程池
@@ -60,10 +63,10 @@ public class Model {
         if (userInfo == null) {
             return;
         }
-        if (mDBManager != null) {
-            mDBManager.close();
+        if (mManager != null) {
+            mManager.close();
         }
-        mDBManager = new DBManager(mContext, userInfo.getName());
+        mManager = new InvitationContactManager(mContext, userInfo.getName());
     }
 
     /**
@@ -71,8 +74,8 @@ public class Model {
      *
      * @return
      */
-    public DBManager getDBManager() {
-        return mDBManager;
+    public InvitationContactManager getInCoManager() {
+        return mManager;
     }
 }
 

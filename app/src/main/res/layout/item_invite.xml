@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="5dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/em_default_avatar"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_invite_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="名称"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tv_invite_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="原因"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginRight="10dp"
+        android:id="@+id/btn_invite_accept"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        style="@style/NormalBtnStyle"
+        android:text="接受"/>
+
+    <Button
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btn_invite_reject"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        style="@style/NormalBtnStyle"
+        android:text="拒绝"/>
+
+
+</LinearLayout>

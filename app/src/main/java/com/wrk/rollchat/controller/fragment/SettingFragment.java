@@ -65,7 +65,7 @@ public class SettingFragment extends Fragment {
                     @Override
                     public void onSuccess() {
                         // 关闭DBhelper
-                        Model.getInstance().getDBManager().close();
+                        Model.getInstance().getInCoManager().close();
 
                         // 回到登录页面
                         // 更新UI显示

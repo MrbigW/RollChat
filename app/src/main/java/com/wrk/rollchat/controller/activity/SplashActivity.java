@@ -28,6 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         }
 
     };
+    private UserInfo mUserInfo;
 
     private void toMainOrLogin() {
 
@@ -42,18 +43,19 @@ public class SplashActivity extends AppCompatActivity {
                         // 判断是否曾经登陆过
                         if (EMClient.getInstance().isLoggedInBefore()) { // 登陆过
                             // 获取登录过的用户信息
-                            UserInfo userInfo = Model.getInstance().getAccountDAO().getAccountByHxid(EMClient.getInstance().getCurrentUser());
+                            mUserInfo = Model.getInstance().getAccountDAO().getAccountByHxid(EMClient.getInstance().getCurrentUser());
 
-                            if (userInfo == null) {
+                            if (mUserInfo == null) {
                                 // 跳转至登录页面
                                 startActivity(new Intent(SplashActivity.this, LoginActivty.class));
                             } else {
                                 // 登录成功之后
-                                Model.getInstance().loginSuccess(userInfo);
+                                Model.getInstance().loginSuccess(mUserInfo);
                                 // 跳转至主页面
                                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                             }
                         } else { // 未登录过
+                            Model.getInstance().loginSuccess(mUserInfo);
                             startActivity(new Intent(SplashActivity.this, LoginActivty.class));
                         }
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
